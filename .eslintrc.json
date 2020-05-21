@@ -8,7 +8,9 @@
     "react/jsx-one-expression-per-line": 0,
     "object-curly-newline": 0,
     "no-undef": 0,
-    "no-undef-init": 2
+    "no-undef-init": 2,
+    "react/forbid-prop-types": 0,
+    "react/prop-types": 0
   },
   "globals": {
     "document": false,

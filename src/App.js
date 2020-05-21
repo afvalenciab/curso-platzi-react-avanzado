@@ -1,14 +1,29 @@
 import React from 'react';
+
+import { ListOfPhotoCardsWithQuery } from './container/ListOfPhotoCardsWithQuery';
+import { PhotoCardWithQuery } from './container/PhotoCardWithQuery';
+
 import { ListOfCategory } from './components/ListOfCategories';
-import { ListOfPhotoCards } from './components/ListOfPhotoCards';
-import { GlobalStyles } from './styles/GlobalStyles';
 import { Logo } from './components/Logo';
 
-export const App = () => (
-  <>
-    <GlobalStyles />
-    <Logo />
-    <ListOfCategory />
-    <ListOfPhotoCards />
-  </>
-);
+import { GlobalStyles } from './styles/GlobalStyles';
+
+export const App = () => {
+  const urlParams = new window.URLSearchParams(window.location.search);
+  const detailId = urlParams.get('detail');
+
+  return (
+    <>
+      <GlobalStyles />
+      <Logo />
+      {detailId ? (
+        <PhotoCardWithQuery id={detailId} />
+      ) : (
+        <>
+          <ListOfCategory />
+          <ListOfPhotoCardsWithQuery categoryId={2} />
+        </>
+      )}
+    </>
+  );
+};

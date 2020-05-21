@@ -1,21 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { PhotoCard } from '../PhotoCard';
-import { useFetchData } from '../../hooks/useFetchData';
 
-export const ListOfPhotoCards = () => {
-  const [photos, loading] = useFetchData('http://localhost:8080/api/db.json');
+export const ListOfPhotoCards = ({ photos } = {}) => (
+  <ul>
+    {photos?.map((photo) => (
+      <li key={photo.id}>
+        <PhotoCard {...photo} />
+      </li>
+    ))}
+  </ul>
+);
 
-  if (loading) {
-    return 'loading...';
-  }
 
-  return (
-    <ul>
-      {photos.photos?.map((photo) => (
-        <li key={photo.id}>
-          <PhotoCard {...photo} />
-        </li>
-      ))}
-    </ul>
-  );
+ListOfPhotoCards.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

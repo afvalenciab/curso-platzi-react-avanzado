@@ -45,12 +45,12 @@ export const ListOfCategory = () => {
         {loading ? (
           renderSkeleton()
         ) : (
-            categories.map((category) => (
-              <ListItem key={category.id}>
-                <Category {...category} />
-              </ListItem>
-            ))
-          )}
+          categories.map((category) => (
+            <ListItem key={category.id}>
+              <Category {...category} />
+            </ListItem>
+          ))
+        )}
       </List>
     );
   };
