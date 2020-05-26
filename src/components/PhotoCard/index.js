@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from '@reach/router';
+
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useNearScreen } from '../../hooks/useNearScreen';
 
@@ -20,11 +22,11 @@ export const PhotoCard = ({ id, likes, src }) => {
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Img src={src} alt="Card" />
             </ImgWrapper>
-          </a>
+          </Link>
 
           <ToggleLikeMutation>
             {

@@ -34,5 +34,5 @@ export const ListOfPhotoCardsWithQuery = ({ categoryId }) => (
 );
 
 ListOfPhotoCardsWithQuery.propTypes = {
-  categoryId: PropTypes.number.isRequired,
+  categoryId: PropTypes.string,
 };
