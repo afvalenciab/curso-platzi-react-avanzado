@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from '@reach/router';
 
-import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useNearScreen } from '../../hooks/useNearScreen';
 
 import { FavButton } from '../FavButton';
@@ -12,11 +11,8 @@ import { Article, ImgWrapper, Img } from './styles';
 
 const DEFAULT_IMAGE = 'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png';
 
-export const PhotoCard = ({ id, likes, src }) => {
+export const PhotoCard = ({ id, liked, likes, src }) => {
   const [show, element] = useNearScreen();
-
-  const key = `like-${id}`;
-  const [liked, setLiked] = useLocalStorage(key, false);
 
   return (
     <Article ref={element}>
@@ -32,9 +28,7 @@ export const PhotoCard = ({ id, likes, src }) => {
             {
               (toggleLike) => {
                 const handleClick = () => {
-                  if (!liked) toggleLike({ variables: { input: { id } } });
-
-                  setLiked(!liked);
+                  toggleLike({ variables: { input: { id } } });
                 };
 
                 return <FavButton liked={liked} likes={likes} onClick={handleClick} />;
@@ -55,5 +49,6 @@ PhotoCard.defaultProps = {
 PhotoCard.propTypes = {
   id: PropTypes.string.isRequired,
   likes: PropTypes.number,
+  liked: PropTypes.bool,
   src: PropTypes.string,
 };
