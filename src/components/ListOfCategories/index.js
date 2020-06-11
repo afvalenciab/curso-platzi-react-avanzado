@@ -4,7 +4,7 @@ import { Category } from '../Category';
 import { useFetchData } from '../../hooks/useFetchData';
 import { Div, List, ListItem, Section } from './styles';
 
-export const ListOfCategory = () => {
+const ListOfCategoryComponent = () => {
   const [categories, loading] = useFetchData('https://petgram-server-afvalenciab.afvalenciab.now.sh/categories');
   const [showFixed, setShowFixed] = useState(false);
 
@@ -62,3 +62,5 @@ export const ListOfCategory = () => {
     </>
   );
 };
+
+export const ListOfCategory = React.memo(ListOfCategoryComponent);

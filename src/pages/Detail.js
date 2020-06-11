@@ -1,8 +1,11 @@
 import React from 'react';
 import { PhotoCardWithQuery } from '../container/PhotoCardWithQuery';
+import { Layout } from '../components/Layout';
 
-export const Detail = ({ detailId }) => {
-  return (
+const Detail = ({ detailId }) => (
+  <Layout title={`Mascota Nº ${detailId}`}>
     <PhotoCardWithQuery id={detailId} />
-  );
-};
+  </Layout>
+);
+
+export default Detail;

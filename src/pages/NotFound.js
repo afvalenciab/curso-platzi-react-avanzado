@@ -11,9 +11,11 @@ const Section = styled.section`
   height: calc(100vh - 200px);
 `;
 
-export const NotFound = () => (
+const NotFound = () => (
   <Section>
     <h1>¡Upps, esta página no existe!</h1>
     <GiSpiderWeb size="100" />
   </Section>
 );
+
+export default NotFound;

@@ -16,7 +16,7 @@ const Section = styled.section`
   height: calc(100vh - 200px);
 `;
 
-export const User = () => {
+const User = () => {
   const { removeAuth } = useContext(Context);
 
   return (
@@ -27,3 +27,5 @@ export const User = () => {
     </Section>
   );
 };
+
+export default User;

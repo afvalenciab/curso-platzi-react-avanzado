@@ -24,7 +24,7 @@ const SIGN_UP = {
   errorMsg: 'El usuario ya existe o hay algún problema.',
 };
 
-export const NotRegisteredUser = () => {
+const NotRegisteredUser = () => {
   const [methodAuth, setMethodAuth] = useState(SIGN_IN);
   const [toggleBtn, setToggleBtn] = useState(false);
 
@@ -74,3 +74,5 @@ export const NotRegisteredUser = () => {
 
   return renderMethodMutation(methodAuth);
 };
+
+export default NotRegisteredUser;
